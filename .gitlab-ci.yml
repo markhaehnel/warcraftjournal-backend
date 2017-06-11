@@ -8,8 +8,8 @@ before_script:
     - yarn
 
 stages:
-	- lint
-	- build
+    - lint
+    - build
 
 lint:
     stage: lint
