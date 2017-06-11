@@ -12,11 +12,11 @@ stages:
 	- build
 
 lint:
-	stage: lint
+    stage: lint
     script:
         - yarn run lint
 
 build:
-	stage: build
+    stage: build
     script:
         - yarn run build
