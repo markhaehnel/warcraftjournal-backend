@@ -7,10 +7,16 @@ cache:
 before_script:
     - yarn
 
+stages:
+	- lint
+	- build
+
 lint:
+	stage: lint
     script:
         - yarn run lint
 
 build:
+	stage: build
     script:
         - yarn run build
