@@ -1,0 +1,16 @@
+image: node:8-alpine
+
+cache:
+    paths:
+        - node_modules/
+
+before_script:
+    - yarn
+
+lint:
+    script:
+        - yarn run lint
+
+build:
+    script:
+        - yarn run build
