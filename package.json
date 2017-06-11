@@ -1,0 +1,32 @@
+{
+    "name": "warcraftjournal",
+    "version": "0.0.1",
+    "description": "Statistics and calculations on World of Warcraft data",
+    "author": "Mark Hähnel <hello@markhaehnel.de>",
+    "private": true,
+    "scripts": {
+        "start": "node ./build/main.js",
+        "dev": "backpack",
+        "build": "backpack build",
+        "precommit": "npm run lint",
+        "postinstall": "backpack build",
+        "lint": "eslint --ext .js --ignore-path .gitignore ."
+    },
+    "dependencies": {
+        "blizzard.js": "^1.7.0",
+        "dotenv": "^4.0.0",
+        "express": "^4.15.3",
+        "http-status-codes": "^1.1.6",
+        "mongoose": "^4.10.5"
+    },
+    "devDependencies": {
+        "babel-eslint": "^7.2.3",
+        "backpack-core": "^0.3.0",
+        "eslint": "^3.19.0",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-plugin-import": "^2.3.0",
+        "eslint-plugin-node": "^5.0.0",
+        "eslint-plugin-promise": "^3.5.0",
+        "eslint-plugin-standard": "^3.0.1"
+    }
+}

@@ -1,0 +1,11 @@
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Backpack
+build
+
+# Environment variables
+.env

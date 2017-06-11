@@ -1,0 +1,10 @@
+// Platzieren Sie Ihre Einstellungen in dieser Datei, um Standard- und Benutzereinstellungen zu überschreiben.
+{
+    "files.exclude": {
+        ".nuxt": true,
+        "build": true,
+        "dist": true,
+        "node_modules": true
+    },
+    "eslint.enable": true
+}
