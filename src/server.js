@@ -1,14 +1,20 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import mongoose from 'mongoose'
-import routes from './routes'
-import './models'
-
+const dotenv = require('dotenv')
 dotenv.config()
+
+const mongoose = require('mongoose')
+const express = require('express')
+const cors = require('cors')
+const routes = require('./routes')
+
+require('./models')
+
+mongoose.Promise = global.Promise
 
 const app = express()
 const host = process.env.HOST || '0.0.0.0'
 const port = process.env.PORT || 3001
+
+app.use(cors())
 
 app.set('port', port)
 app.use('/', routes)

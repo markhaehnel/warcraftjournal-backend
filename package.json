@@ -5,23 +5,20 @@
     "author": "Mark Hähnel <hello@markhaehnel.de>",
     "private": true,
     "scripts": {
-        "start": "node ./build/main.js",
-        "dev": "backpack",
-        "build": "backpack build",
+        "start": "node ./src/server.js",
         "precommit": "npm run lint",
-        "postinstall": "backpack build",
         "lint": "eslint --ext .js --ignore-path .gitignore ."
     },
     "dependencies": {
+        "axios": "^0.16.2",
         "blizzard.js": "^1.7.0",
+        "cors": "^2.8.3",
         "dotenv": "^4.0.0",
         "express": "^4.15.3",
         "http-status-codes": "^1.1.6",
         "mongoose": "^4.10.5"
     },
     "devDependencies": {
-        "babel-eslint": "^7.2.3",
-        "backpack-core": "^0.3.0",
         "eslint": "^3.19.0",
         "eslint-config-standard": "^10.2.1",
         "eslint-plugin-import": "^2.3.0",

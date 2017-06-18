@@ -1,9 +1,9 @@
-import { Router } from 'express'
-import HttpStatus from 'http-status-codes'
-import mongoose from 'mongoose'
-import blizzard from '../config/blizzard'
+const Router = require('express').Router
+const HttpStatus = require('http-status-codes')
+const mongoose = require('mongoose')
+const blizzard = require('../config/blizzard')
 
-let router = Router()
+const router = Router()
 
 router.get('/guilds', async (req, res, next) => {
     res.status(HttpStatus.NOT_IMPLEMENTED).json({ 'message': 'Not implemented yet' })
@@ -15,7 +15,7 @@ router.get('/guilds/:realm/:name', async (req, res, next) => {
 
     if (!guild) {
         try {
-            let data = (await blizzard.wow(['members'], { origin: 'eu', realm: req.params.realm, name: req.params.name })).data
+            let data = (await blizzard.wow.guild(['members'], { origin: 'eu', realm: req.params.realm, name: req.params.name })).data
 
             let members = []
 
@@ -42,4 +42,4 @@ router.get('/guilds/:realm/:name', async (req, res, next) => {
     }
 })
 
-export default router
+module.exports = router

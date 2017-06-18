@@ -2,5 +2,6 @@
  * Mongoose Schema loader
  */
 
-import './character'
-import './guild'
+require('./character')
+require('./guild')
+require('./buildings')

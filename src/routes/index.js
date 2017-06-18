@@ -1,11 +1,12 @@
-import { Router } from 'express'
-
-import guildRouter from './guilds'
-import notFoundRouter from './not-found'
+const Router = require('express').Router
+const guildRouter = require('./guilds')
+const buildingsRouter = require('./buildings')
+const notFoundRouter = require('./not-found')
 
 var router = Router()
 
 router.use(guildRouter)
+router.use(buildingsRouter)
 router.use(notFoundRouter)
 
-export default router
+module.exports = router

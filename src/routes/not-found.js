@@ -1,10 +1,10 @@
-import { Router } from 'express'
-import HttpStatus from 'http-status-codes'
+const Router = require('express').Router
+const HttpStatus = require('http-status-codes')
 
-var router = Router()
+const router = Router()
 
 router.get('*', function (req, res, next) {
     res.status(HttpStatus.NOT_FOUND).json({ 'message': 'The requested endpoint does not exist.' })
 })
 
-export default router
+module.exports = router

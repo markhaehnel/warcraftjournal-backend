@@ -1,7 +1,5 @@
-import blizz from 'blizzard.js'
-
-const blizzard = blizz.initialize({
+const blizzard = require('blizzard.js').initialize({
     apikey: process.env.BATTLENET_API_KEY
 })
 
-export default blizzard
+module.exports = blizzard
