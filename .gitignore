@@ -8,5 +8,8 @@ npm-debug.log
 .env
 .env.production
 
+# Config
+app/config/*
+
 # VS Code settings
 .vscode

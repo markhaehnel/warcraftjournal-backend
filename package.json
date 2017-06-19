@@ -1,23 +1,27 @@
 {
     "name": "warcraftjournal",
-    "version": "0.0.1",
     "description": "Statistics and calculations on World of Warcraft data",
+    "version": "0.0.1",
+    "main": "server.js",
     "author": "Mark Hähnel <hello@markhaehnel.de>",
     "private": true,
     "scripts": {
-        "start": "node ./src/server.js",
-        "precommit": "npm run lint",
-        "lint": "eslint --ext .js --ignore-path .gitignore ."
+        "start": "node server.js",
+        "lint": "eslint --ext .js --ignore-path .gitignore .",
+        "doc": "apidoc -i app -o docs"
     },
     "dependencies": {
         "app-module-path": "^2.2.0",
         "axios": "^0.16.2",
         "blizzard.js": "^1.7.0",
+        "compression": "^1.6.2",
         "cors": "^2.8.3",
         "dotenv": "^4.0.0",
         "express": "^4.15.3",
         "http-status-codes": "^1.1.6",
-        "mongoose": "^4.10.7"
+        "mongoose": "^4.10.7",
+        "winston": "^2.3.1",
+        "winston-daily-rotate-file": "^1.4.6"
     },
     "devDependencies": {
         "eslint": "^3.19.0",

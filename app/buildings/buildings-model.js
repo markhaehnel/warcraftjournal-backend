@@ -12,7 +12,7 @@ const BuildingSchema = new Schema({
     contributed_hours: { type: Number, required: true },
     buff1: { type: Number, required: true },
     buff2: { type: Number, required: true }
-})
+}, { _id: false })
 
 /**
  * Buildings Schema
@@ -25,7 +25,7 @@ const BuildingsSchema = new Schema({
     lastupdated: { type: Date, required: true }
 })
 
-BuildingsSchema.methods.isOutdated = function () {
+BuildingsSchema.methods.isOutdated = () => {
     return (Math.abs(Date.now() - this.lastupdated) % 36e5 / 60000) > 10
 }
 
