@@ -14,8 +14,6 @@ const BuildingSchema = new Schema({
     buff2: { type: Number, required: true }
 })
 
-mongoose.model('Building', BuildingSchema)
-
 /**
  * Buildings Schema
  */

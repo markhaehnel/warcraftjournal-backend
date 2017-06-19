@@ -24,42 +24,27 @@ router.get('/buildings', async (req, res, next) => {
 async function updateBuildings () {
     let Buildings = mongoose.model('Buildings')
 
-    let raw = await axios.get('https://data.magetower.info/magetower.json')
-    let rawBuildings = raw.data.update.EU
-
-    let magetower = {
-        state: rawBuildings['1'].state,
-        contributed: rawBuildings['1'].contributed,
-        contributedHours: rawBuildings['1'].contributed_hours,
-        buff1: rawBuildings['1'].buff1,
-        buff2: rawBuildings['1'].buff2
-    }
-
-    let commandcenter = {
-        state: rawBuildings['3'].state,
-        contributed: rawBuildings['3'].contributed,
-        contributedHours: rawBuildings['3'].contributed_hours,
-        buff1: rawBuildings['3'].buff1,
-        buff2: rawBuildings['3'].buff2
-    }
-
-    let netherdisruptor = {
-        state: rawBuildings['4'].state,
-        contributed: rawBuildings['4'].contributed,
-        contributedHours: rawBuildings['4'].contributed_hours,
-        buff1: rawBuildings['4'].buff1,
-        buff2: rawBuildings['4'].buff2
-    }
+    let { data } = await axios.get('https://data.magetower.info/magetower.json')
 
     let newBuildings = {
-        magetower,
-        commandcenter,
-        netherdisruptor,
+        magetower: createBuildingObject(data.rawBuildings['1']),
+        commandcenter: createBuildingObject(data.rawBuildings['3']),
+        netherdisruptor: createBuildingObject(data.rawBuildings['4']),
         lastupdated: Date.now()
     }
 
     newBuildings = await Buildings.findOneAndUpdate({}, newBuildings, { new: true, upsert: true })
     return newBuildings
+}
+
+function createBuildingObject (params) {
+    return {
+        state: params.state,
+        contributed: params.contributed,
+        contributedHours: params.contributed_hours,
+        buff1: params.buff1,
+        buff2: params.buff2
+    }
 }
 
 module.exports = router
