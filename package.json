@@ -17,7 +17,7 @@
         "dotenv": "^4.0.0",
         "express": "^4.15.3",
         "http-status-codes": "^1.1.6",
-        "mongoose": "^4.10.5"
+        "mongoose": "^4.10.7"
     },
     "devDependencies": {
         "eslint": "^3.19.0",
