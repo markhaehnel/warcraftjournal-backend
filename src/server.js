@@ -1,5 +1,8 @@
-const dotenv = require('dotenv')
-dotenv.config()
+// Set module root directory and define a custom require function
+require('app-module-path').addPath(__dirname)
+
+// Load environment configuration
+require('dotenv').config()
 
 const mongoose = require('mongoose')
 const express = require('express')

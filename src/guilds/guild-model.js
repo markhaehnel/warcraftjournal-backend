@@ -18,11 +18,8 @@ const GuildSchema = new Schema({
     updated: { type: Date, default: Date.now, required: true }
 })
 
-GuildSchema
-    .virtual('updateAllowd')
-    .get(() => {
-        let diffHours = (Math.abs(this.updated - this.created) / 36e5)
-        return (diffHours > 1)
-    })
+GuildSchema.methods.isOutdated = function () {
+    return (Math.abs(Date.now() - this.lastupdated) / 36e5) > 1
+}
 
 mongoose.model('Guild', GuildSchema)

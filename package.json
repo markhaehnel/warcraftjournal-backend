@@ -10,6 +10,7 @@
         "lint": "eslint --ext .js --ignore-path .gitignore ."
     },
     "dependencies": {
+        "app-module-path": "^2.2.0",
         "axios": "^0.16.2",
         "blizzard.js": "^1.7.0",
         "cors": "^2.8.3",

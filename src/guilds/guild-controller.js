@@ -1,15 +1,8 @@
-const Router = require('express').Router
 const HttpStatus = require('http-status-codes')
 const mongoose = require('mongoose')
 const blizzard = require('../config/blizzard')
 
-const router = Router()
-
-router.get('/guilds', async (req, res, next) => {
-    res.status(HttpStatus.NOT_IMPLEMENTED).json({ 'message': 'Not implemented yet' })
-})
-
-router.get('/guilds/:realm/:name', async (req, res, next) => {
+module.exports.getGuild = async (req, res, next) => {
     let Guild = mongoose.model('Guild')
     let guild = await Guild.findOne({ realm: req.params.realm, name: req.params.name })
 
@@ -40,6 +33,4 @@ router.get('/guilds/:realm/:name', async (req, res, next) => {
             res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ 'message': err.message })
         }
     }
-})
-
-module.exports = router
+}

@@ -9,7 +9,7 @@ const Schema = mongoose.Schema
 const BuildingSchema = new Schema({
     state: { type: Number, required: true },
     contributed: { type: Number, required: true },
-    contributedHours: { type: Number, required: true },
+    contributed_hours: { type: Number, required: true },
     buff1: { type: Number, required: true },
     buff2: { type: Number, required: true }
 })
