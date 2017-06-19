@@ -27,24 +27,14 @@ async function updateBuildings () {
     let { data } = await axios.get('https://data.magetower.info/magetower.json')
 
     let newBuildings = {
-        magetower: createBuildingObject(data.rawBuildings['1']),
-        commandcenter: createBuildingObject(data.rawBuildings['3']),
-        netherdisruptor: createBuildingObject(data.rawBuildings['4']),
+        magetower: data.rawBuildings['1'],
+        commandcenter: data.rawBuildings['3'],
+        netherdisruptor: data.rawBuildings['4'],
         lastupdated: Date.now()
     }
 
     newBuildings = await Buildings.findOneAndUpdate({}, newBuildings, { new: true, upsert: true })
     return newBuildings
-}
-
-function createBuildingObject (params) {
-    return {
-        state: params.state,
-        contributed: params.contributed,
-        contributedHours: params.contributed_hours,
-        buff1: params.buff1,
-        buff2: params.buff2
-    }
 }
 
 module.exports = router
