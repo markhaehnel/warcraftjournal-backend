@@ -26,7 +26,7 @@ const BuildingsSchema = new Schema({
 })
 
 BuildingsSchema.methods.isOutdated = () => {
-    return (Math.abs(Date.now() - this.lastupdated) % 36e5 / 60000) > 10
+    return (Math.abs(Date.now() - this.lastupdated) / 36e5) > 0.1
 }
 
 mongoose.model('Buildings', BuildingsSchema)
