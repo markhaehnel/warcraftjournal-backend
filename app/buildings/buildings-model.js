@@ -25,7 +25,7 @@ const BuildingsSchema = new Schema({
     lastupdated: { type: Date, required: true }
 })
 
-BuildingsSchema.methods.isOutdated = () => {
+BuildingsSchema.methods.isOutdated = function () {
     return (Math.abs(Date.now() - this.lastupdated) / 36e5) > 0.1
 }
 
