@@ -6,12 +6,23 @@ const Schema = mongoose.Schema
  * Building Schema
  */
 
+const BuffSchema = new Schema({
+    id: { type: Number, required: true },
+    name: { type: String, required: true },
+    icon: { type: String, required: true },
+    description: { type: String, required: true }
+}, { _id: false })
+
+/**
+ * Building Schema
+ */
+
 const BuildingSchema = new Schema({
     state: { type: Number, required: true },
     contributed: { type: Number, required: true },
     contributed_hours: { type: Number, required: true },
-    buff1: { type: Number, required: true },
-    buff2: { type: Number, required: true }
+    buff1: BuffSchema,
+    buff2: BuffSchema
 }, { _id: false })
 
 /**
