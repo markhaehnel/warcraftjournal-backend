@@ -24,6 +24,7 @@ module.exports.start = async () => {
 
     // Initialize api
     app.use('/buildings', require('buildings/routes.js'))
+    app.use('/mythicplus', require('mythicplus/routes.js'))
 
     // Log all other requests and send 404
     app.use((req, res) => {
