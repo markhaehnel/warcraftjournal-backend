@@ -9,8 +9,23 @@ before_script:
 
 stages:
     - lint
+    - deploy
 
 lint:
     stage: lint
     script:
         - yarn run lint
+
+deploy:
+    stage: deploy
+    when: manual
+    only:
+        - master
+    script:
+        - apk add --update git openssh-client
+        - mkdir -p ~/.ssh
+        - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        - chmod 600 ~/.ssh/id_rsa
+        - ssh-keyscan -p 2222 -H 'warcraftjournal.org' >> ~/.ssh/known_hosts
+        - echo -e 'Host warcraftjournal.org\n    Port 2222' >> ~/.ssh/config
+        - git push dokku@warcraftjournal.org:warcraftjournal-api-staging master
