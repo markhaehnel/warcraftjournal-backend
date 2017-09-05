@@ -19,7 +19,7 @@ module.exports.start = async () => {
     app.use(cors())
 
     // Initialize api
-    app.use('/buildings', require('buildings/routes.js'))
+    // app.use('/buildings', require('buildings/routes.js'))
     app.use('/mythicplus', require('mythicplus/routes.js'))
     app.use('/guilds', require('guilds/routes.js'))
 
