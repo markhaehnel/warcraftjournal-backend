@@ -8,6 +8,7 @@ const Schema = mongoose.Schema
 
 const GuildSchema = new Schema({
     name: { type: String, required: true },
+    nameNormalized: { type: String, required: true },
     realm: { type: String, required: true },
     side: { type: Number, required: true },
     members: [{
@@ -15,7 +16,7 @@ const GuildSchema = new Schema({
         realm: { type: String, required: true }
     }],
     created: { type: Date, default: Date.now, required: true },
-    updated: { type: Date, default: Date.now, required: true }
+    lastupdated: { type: Date, default: Date.now, required: true }
 })
 
 GuildSchema.methods.isOutdated = function () {

@@ -3,7 +3,6 @@ const compression = require('compression')
 const cors = require('cors')
 const HttpStatus = require('http-status-codes')
 const applicationStorage = require('core/application-storage')
-const removeMongoAttributes = require('core/middleware/remove-mongo-attributes')
 
 module.exports.start = async () => {
     let app = express()
@@ -19,12 +18,10 @@ module.exports.start = async () => {
     // Enable CORS
     app.use(cors())
 
-    // Add mongo attribute removal middleware (_id, __v)
-    app.use(removeMongoAttributes)
-
     // Initialize api
     app.use('/buildings', require('buildings/routes.js'))
     app.use('/mythicplus', require('mythicplus/routes.js'))
+    app.use('/guilds', require('guilds/routes.js'))
 
     // Log all other requests and send 404
     app.use((req, res) => {

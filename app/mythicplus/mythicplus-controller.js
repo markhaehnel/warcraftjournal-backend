@@ -3,7 +3,7 @@ const HttpStatus = require('http-status-codes')
 const mongoose = require('mongoose')
 const raider = require('core/api/raider')
 
-// Initialize buildings schema
+// Initialize schema
 require('mythicplus/mythicplus-model')
 
 module.exports.getAffixes = async (req, res, next) => {
