@@ -7,6 +7,14 @@ module.exports.startMongo = async () => {
     return new Promise((resolve, reject) => {
         mongoose.Promise = global.Promise
 
+        mongoose.plugin((schema) => {
+            schema.options.toJSON = {
+                transform (doc, ret) {
+                    delete ret._id
+                }
+            }
+        })
+
         applicationStorage.mongo = mongoose.connect(applicationStorage.config.database.mongo).connection
             .once('open', () => {
                 applicationStorage.logger.info('MongoDB connected')
