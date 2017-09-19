@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const blizzard = require('core/api/blizzard')
 
 // Initialize schema
-require('guilds/guild-model')
+require('guild/guild-model')
 
 module.exports.getGuild = async ({ params }, res, next) => {
     try {

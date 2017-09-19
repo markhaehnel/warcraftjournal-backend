@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const HttpStatus = require('http-status-codes')
-const guildController = require('guilds/guild-controller')
+const guildController = require('guild/guild-controller')
 const normalizer = require('utils/normalizer')
 
 const realms = require('data/realms.json')
