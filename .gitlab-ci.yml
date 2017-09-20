@@ -28,3 +28,6 @@ deploy:
         - ssh-keyscan -p 2222 -H 'warcraftjournal.org' >> ~/.ssh/known_hosts
         - echo -e 'Host warcraftjournal.org\n    Port 2222' >> ~/.ssh/config
         - git push dokku@warcraftjournal.org:warcraftjournal-api-staging master
+    environment:
+        name: staging
+        url: https://api.staging.warcraftjournal.org
