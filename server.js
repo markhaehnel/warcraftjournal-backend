@@ -2,6 +2,8 @@
 require('app-module-path').addPath(`${__dirname}/app`)
 
 // Enable monitoring
-require('newrelic')
+if (process.env.NODE_ENV === 'production') {
+  require('newrelic')
+}
 
 require('core/bootstrap')()
