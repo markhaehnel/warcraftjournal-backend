@@ -8,6 +8,7 @@ module.exports = Object.freeze({
         level: 'debug'
     },
     battlenet: {
-        clientID: process.env.BATTLENET_CLIENTID || 'yourBnetClientID'
+        clientID: process.env.BATTLENET_CLIENTID || 'yourBnetClientID',
+        clientSecret: process.env.BATTLENET_CLIENTSECRET || 'yourBnetClientSecret'
     }
 })
