@@ -7,7 +7,7 @@
     "private": true,
     "scripts": {
         "start": "node server.js",
-        "lint": "standard"
+        "lint": "standard --verbose | snazzy"
     },
     "dependencies": {
         "app-module-path": "^2.2.0",
@@ -24,8 +24,9 @@
         "winston-daily-rotate-file": "^1.7.2"
     },
     "devDependencies": {
-        "standard": "^10.0.3",
-        "eslint-plugin-html": "^3.2.2"
+        "eslint-plugin-html": "^3.2.2",
+        "snazzy": "^7.0.0",
+        "standard": "^10.0.3"
     },
     "engines": {
         "node": "^8.5.0"
