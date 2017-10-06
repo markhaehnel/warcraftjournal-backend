@@ -1,7 +1,7 @@
 module.exports.getNormalizedCharacterName = (character) => {
-    return character.toLowerCase()
+  return character.toLowerCase()
 }
 
 module.exports.getNormalizedGuildName = (character) => {
-    return character.toLowerCase().replace(/-/g, '-')
+  return character.toLowerCase().replace(/-/g, '-')
 }

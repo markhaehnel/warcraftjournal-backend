@@ -7,16 +7,16 @@ const realms = require('data/realms.json')
 
 function validateRealm (req, res, next) {
     // Realm not found
-    if (!realms.find(x => x.slug === req.params.realm)) {
-        res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ 'message': 'Realm (slug) not found.' })
-    }
+  if (!realms.find(x => x.slug === req.params.realm)) {
+    res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ 'message': 'Realm (slug) not found.' })
+  }
 
-    next()
+  next()
 }
 
 function normalizeGuildName ({ params }, res, next) {
-    params.name = normalizer.getNormalizedGuildName(params.name)
-    next()
+  params.name = normalizer.getNormalizedGuildName(params.name)
+  next()
 }
 
 router.get('/', (req, res, next) => res.status(HttpStatus.NOT_IMPLEMENTED).json({ 'message': 'Not implemented yet' }))

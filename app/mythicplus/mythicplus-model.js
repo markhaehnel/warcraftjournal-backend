@@ -7,10 +7,10 @@ const Schema = mongoose.Schema
  */
 
 let MythicPlusAffixSchema = new Schema({
-    id: { type: Number, required: true },
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    wowhead_url: { type: String, required: true }
+  id: { type: Number, required: true },
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  wowhead_url: { type: String, required: true }
 }, { _id: false })
 
 /**
@@ -18,12 +18,12 @@ let MythicPlusAffixSchema = new Schema({
  */
 
 const MythicPlusAffixesSchema = new Schema({
-    affixes: [MythicPlusAffixSchema],
-    lastupdated: { type: Date, required: true }
+  affixes: [MythicPlusAffixSchema],
+  lastupdated: { type: Date, required: true }
 })
 
 MythicPlusAffixesSchema.methods.isOutdated = function () {
-    return (Math.abs(Date.now() - this.lastupdated) / 36e5) > 1
+  return (Math.abs(Date.now() - this.lastupdated) / 36e5) > 1
 }
 
 mongoose.model('MythicPlusAffixes', MythicPlusAffixesSchema)
