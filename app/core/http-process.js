@@ -12,17 +12,18 @@ module.exports.start = async () => {
 
   app.disable('x-powered-by')
 
-    // Enable compression
+  // Enable compression
   app.use(compression({ threshold: 0 }))
 
-    // Enable CORS
+  // Enable CORS
   app.use(cors())
 
-    // Initialize api
+  // Initialize api
   app.use('/mythicplus', require('mythicplus/routes.js'))
   app.use('/guild', require('guild/routes.js'))
+  app.use('/token', require('token/routes.js'))
 
-    // Log all other requests and send 404
+  // Log all other requests and send 404
   app.use((req, res) => {
     res.status(HttpStatus.NOT_FOUND).json({ message: HttpStatus.getStatusText(HttpStatus.NOT_FOUND) })
   })

@@ -20,6 +20,7 @@ const GuildSchema = new Schema({
 })
 
 GuildSchema.methods.isOutdated = function () {
+  // older than 1 hour
   return (Math.abs(Date.now() - this.lastupdated) / 36e5) > 1
 }
 

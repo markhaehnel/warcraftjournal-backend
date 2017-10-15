@@ -6,9 +6,9 @@ const normalizer = require('utils/normalizer')
 const realms = require('data/realms.json')
 
 function validateRealm (req, res, next) {
-    // Realm not found
+  // Realm not found
   if (!realms.find(x => x.slug === req.params.realm)) {
-    res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ 'message': 'Realm (slug) not found.' })
+    res.status(HttpStatus.BAD_REQUEST).json({ 'message': 'Realm (slug) not found.' })
   }
 
   next()
