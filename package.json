@@ -10,6 +10,7 @@
         "lint": "standard --verbose | snazzy"
     },
     "dependencies": {
+        "apicache": "^1.1.0",
         "app-module-path": "^2.2.0",
         "axios": "^0.16.2",
         "blizzard.js": "^2.0.3",
