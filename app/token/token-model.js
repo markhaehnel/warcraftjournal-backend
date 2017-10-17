@@ -12,8 +12,8 @@ const TokenSchema = new Schema({
 })
 
 TokenSchema.methods.isOutdated = function () {
-  // older than 30 mins
-  return (Math.abs(Date.now() - this.lastupdated) / 60000) > 30
+  // older than 10 mins
+  return (Math.abs(Date.now() - this.lastupdated) / 60000) > 10
 }
 
 mongoose.model('Token', TokenSchema)

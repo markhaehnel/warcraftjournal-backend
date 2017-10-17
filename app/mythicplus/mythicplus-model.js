@@ -23,8 +23,8 @@ const MythicPlusAffixesSchema = new Schema({
 })
 
 MythicPlusAffixesSchema.methods.isOutdated = function () {
-  // older than 1 hour
-  return (Math.abs(Date.now() - this.lastupdated) / 36e5) > 1
+  // older than 30 minutes
+  return (Math.abs(Date.now() - this.lastupdated) / 60000) > 30
 }
 
 mongoose.model('MythicPlusAffixes', MythicPlusAffixesSchema)
