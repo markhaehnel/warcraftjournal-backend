@@ -19,9 +19,9 @@ module.exports.start = async () => {
   app.use(cors())
 
   // Initialize api
-  app.use('/mythicplus', require('mythicplus/routes.js'))
-  app.use('/guild', require('guild/routes.js'))
-  app.use('/token', require('token/routes.js'))
+  app.use('/mythicplus', require('route/mythicplus.js'))
+  app.use('/guild', require('route/guild.js'))
+  app.use('/token', require('route/token.js'))
 
   // Log all other requests and send 404
   app.use((req, res) => {
