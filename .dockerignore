@@ -1,0 +1,8 @@
+node_modules
+.eslintrc.js
+.eslintignore
+.gitignore
+.gitlab-ci.yml
+CHECKS
+npm-debug.log
+.git

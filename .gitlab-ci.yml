@@ -1,22 +1,36 @@
-image: node:8-alpine
-
 cache:
     paths:
         - node_modules/
+
+variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
 
 before_script:
     - yarn
 
 stages:
     - lint
+    - build
     - deploy
 
 lint:
+    image: node:8-alpine
     stage: lint
     script:
         - yarn run lint
 
+build:
+    image: docker:latest
+    stage: build
+    services:
+        - docker:dind
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+        - docker build -t $IMAGE_TAG .
+        - docker push $IMAGE_TAG
+
 deploy:
+    image: alpine:latest
     stage: deploy
     only:
         - master
