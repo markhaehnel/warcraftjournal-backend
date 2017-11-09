@@ -1,12 +1,5 @@
-cache:
-    paths:
-        - node_modules/
-
 variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-
-before_script:
-    - yarn
 
 stages:
     - lint
@@ -16,7 +9,11 @@ stages:
 lint:
     image: node:8-alpine
     stage: lint
+    cache:
+        paths:
+            - node_modules/
     script:
+        - yarn
         - yarn run lint
 
 build:
