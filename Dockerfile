@@ -1,5 +1,7 @@
 FROM node:8-alpine
 
+ENV NODE_ENV=production
+
 # Create app directory
 WORKDIR /app
 COPY . /app
