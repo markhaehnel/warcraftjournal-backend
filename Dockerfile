@@ -1,16 +1,10 @@
 FROM node:8-alpine
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
+COPY . /app
 
-# Install app dependencies
-COPY package.json .
-COPY yarn.lock .
-
-RUN yarn
-
-# Bundle app source
-COPY . .
+RUN yarn install
 
 EXPOSE 3000
 CMD [ "yarn", "start" ]
