@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const mythicplusController = require('mythicplus/mythicplus-controller')
+const mythicplusController = require('controllers/mythicplus')
 
 const cache = require('apicache').options({ statusCodes: { include: [200] } }).middleware
 

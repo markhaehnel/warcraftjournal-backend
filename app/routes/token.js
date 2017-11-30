@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const tokenController = require('token/token-controller')
+const tokenController = require('controllers/token')
 
 const cache = require('apicache').options({ statusCodes: { include: [200] } }).middleware
 

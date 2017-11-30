@@ -1,10 +1,10 @@
 const applicationStorage = require('core/application-storage')
 const HttpStatus = require('http-status-codes')
 const mongoose = require('mongoose')
-const raider = require('core/api/raider')
+const raider = require('services/raider')
 
 // Initialize schema
-require('mythicplus/mythicplus-model')
+require('controllers/mythicplus')
 
 module.exports.getAffixes = async (req, res, next) => {
   try {

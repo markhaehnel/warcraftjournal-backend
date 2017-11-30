@@ -1,10 +1,10 @@
 const applicationStorage = require('core/application-storage')
 const HttpStatus = require('http-status-codes')
 const mongoose = require('mongoose')
-const blizzard = require('core/api/blizzard')
+const blizzard = require('services/blizzard')
 
 // Initialize schema
-require('token/token-model')
+require('models/token')
 
 module.exports.getToken = async (req, res, next) => {
   try {

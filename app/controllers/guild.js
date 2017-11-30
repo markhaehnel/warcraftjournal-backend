@@ -1,10 +1,10 @@
 const applicationStorage = require('core/application-storage')
 const HttpStatus = require('http-status-codes')
 const mongoose = require('mongoose')
-const blizzard = require('core/api/blizzard')
+const blizzard = require('services/blizzard')
 
 // Initialize schema
-require('guild/guild-model')
+require('models/guild')
 
 module.exports.getGuild = async ({ params }, res, next) => {
   try {
