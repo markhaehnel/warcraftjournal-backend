@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const raider = require('services/raider')
 
 // Initialize schema
-require('controllers/mythicplus')
+require('models/mythicplus')
 
 module.exports.getAffixes = async (req, res, next) => {
   try {
