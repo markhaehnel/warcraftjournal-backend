@@ -6,7 +6,8 @@
     "author": "Mark Hähnel <hello@markhaehnel.de>",
     "private": true,
     "scripts": {
-        "start": "node server.js",
+        "web": "node bin/web.js",
+        "worker": "node bin/worker.js",
         "lint": "standard --verbose | snazzy"
     },
     "dependencies": {
