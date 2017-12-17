@@ -1,7 +1,7 @@
 const applicationStorage = require('core/application-storage')
 const HttpStatus = require('http-status-codes')
 const mongoose = require('mongoose')
-const blizzard = require('common/services/blizzard')
+const blizzard = require('common/services/BattleNet')
 
 // Initialize schema
 require('models/guild')
