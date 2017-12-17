@@ -1,6 +1,5 @@
 variables:
-    IMAGE_TAG_WEB: $CI_REGISTRY_IMAGE:web
-    IMAGE_TAG_WORKER: $CI_REGISTRY_IMAGE:worker
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
 
 stages:
     - lint
@@ -16,22 +15,12 @@ lint:
         - yarn
         - yarn run lint
 
-build-web:
+build:
     image: docker:latest
     stage: build
     services:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-        - docker build -t $IMAGE_TAG_WEB -f Dockerfile.web .
-        - docker push $IMAGE_TAG_WEB
-
-build-worker:
-    image: docker:latest
-    stage: build
-    services:
-        - docker:dind
-    script:
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-        - docker build -t $IMAGE_TAG_WORKER -f Dockerfile.worker .
-        - docker push $IMAGE_TAG_WORKER
+        - docker build -t $IMAGE_TAG .
+        - docker push $IMAGE_TAG

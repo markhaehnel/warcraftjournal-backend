@@ -8,4 +8,5 @@ COPY . /app
 
 RUN yarn install
 
-CMD yarn run worker
+EXPOSE 3000
+CMD [ "yarn", "start" ]
