@@ -4,7 +4,6 @@ const guildController = require('controllers/guild')
 const normalizer = require('utils/normalizer')
 
 const realms = require('data/realms.json')
-const cache = require('apicache').options({ statusCodes: { include: [200] } }).middleware
 
 function validateRealm (req, res, next) {
   // Realm not found
@@ -21,6 +20,6 @@ function normalizeGuildName ({ params }, res, next) {
 }
 
 router.get('/', (req, res, next) => res.status(HttpStatus.NOT_IMPLEMENTED).json({ 'message': 'Not implemented yet' }))
-router.get('/:realm/:name', cache('30 minutes'), validateRealm, normalizeGuildName, guildController.getGuild)
+router.get('/:realm/:name', validateRealm, normalizeGuildName, guildController.getGuild)
 
 module.exports = router
