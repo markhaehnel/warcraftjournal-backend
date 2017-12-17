@@ -1,6 +1,6 @@
 const applicationStorage = require('core/application-storage')
 const HttpStatus = require('http-status-codes')
-const Token = require('common/models/Token')
+const Token = require('common/models/WoWToken')
 
 module.exports.getToken = async (req, res, next) => {
   try {

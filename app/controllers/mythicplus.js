@@ -1,6 +1,6 @@
 const applicationStorage = require('core/application-storage')
 const HttpStatus = require('http-status-codes')
-const Affixes = require('common/models/mythicplus')
+const Affixes = require('common/models/MythicPlusAffixes')
 
 module.exports.getAffixes = async (req, res, next) => {
   try {
