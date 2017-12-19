@@ -4,7 +4,7 @@ const Token = require('common/models/WoWToken')
 
 module.exports.getToken = async (req, res, next) => {
   try {
-    let token = await Token.findOne()
+    let token = await Token.findOne().sort({ time: -1 })
     res.status(HttpStatus.OK).json(token.toJSON())
   } catch (error) {
     applicationStorage.logger.error(error)
