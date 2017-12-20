@@ -1,4 +1,4 @@
-const applicationStorage = require('core/application-storage')
+const applicationStorage = require('common/stores/application')
 const HttpStatus = require('http-status-codes')
 const Affixes = require('common/models/MythicPlusAffixes')
 

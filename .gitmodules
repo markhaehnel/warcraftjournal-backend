@@ -1,3 +1,0 @@
-[submodule "app/common"]
-	path = app/common
-	url = git@gitlab.com:warcraftjournal/common.git

@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const HttpStatus = require('http-status-codes')
-const guildController = require('controllers/guild')
-const normalizer = require('utils/normalizer')
+const guildController = require('api/controllers/guild')
+const normalizer = require('api/utils/normalizer')
 
-const realms = require('data/realms.json')
+const realms = require('common/data/realms.json')
 
 function validateRealm (req, res, next) {
   // Realm not found

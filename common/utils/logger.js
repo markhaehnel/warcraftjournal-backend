@@ -1,5 +1,5 @@
 const winston = require('winston')
-const applicationStorage = require('core/application-storage')
+const applicationStorage = require('common/stores/application')
 
 module.exports.start = async () => {
   return new Promise((resolve) => {

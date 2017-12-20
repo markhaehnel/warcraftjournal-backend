@@ -2,7 +2,7 @@ const express = require('express')
 const compression = require('compression')
 const cors = require('cors')
 const HttpStatus = require('http-status-codes')
-const applicationStorage = require('core/application-storage')
+const applicationStorage = require('common/stores/application')
 
 module.exports.start = async () => {
   let app = express()
@@ -19,9 +19,9 @@ module.exports.start = async () => {
   app.use(cors())
 
   // Initialize api
-  app.use('/mythicplus', require('routes/mythicplus.js'))
-  app.use('/guild', require('routes/guild.js'))
-  app.use('/token', require('routes/token.js'))
+  app.use('/mythicplus', require('api/routes/mythicplus.js'))
+  app.use('/guild', require('api/routes/guild.js'))
+  app.use('/token', require('api/routes/token.js'))
 
   // Log all other requests and send 404
   app.use((req, res) => {

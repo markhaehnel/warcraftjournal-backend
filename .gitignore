@@ -4,12 +4,5 @@ node_modules
 # logs
 npm-debug.log
 
-# Environment variables
-.env
-.env.production
-
-# Config
-app/config/*
-
 # VS Code settings
 .vscode

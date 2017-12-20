@@ -1,4 +1,4 @@
-var applicationStorage = require('core/application-storage')
+var applicationStorage = require('common/stores/application')
 var mongoose = require('mongoose')
 
 mongoose.plugin((schema) => {
@@ -10,13 +10,11 @@ mongoose.plugin((schema) => {
   }
 })
 
-module.exports.start = () => { this.startMongo() }
-
-module.exports.startMongo = async () => {
+module.exports.start = async () => {
   return new Promise((resolve, reject) => {
     mongoose.Promise = global.Promise
 
-    applicationStorage.mongo = mongoose.connect(applicationStorage.config.database.mongo).connection
+    applicationStorage.mongo = mongoose.connect(applicationStorage.config.mongo).connection
             .once('open', () => {
               applicationStorage.logger.info('MongoDB connected')
               resolve()

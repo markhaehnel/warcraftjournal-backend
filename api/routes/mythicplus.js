@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const mythicplusController = require('controllers/mythicplus')
+const mythicplusController = require('api/controllers/mythicplus')
 
 router.get('/affixes', mythicplusController.getAffixes)
 

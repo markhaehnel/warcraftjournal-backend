@@ -1,10 +1,5 @@
 const mongoose = require('mongoose')
-
 const Schema = mongoose.Schema
-
-/**
- * Guild Schema
- */
 
 const GuildSchema = new Schema({
   name: { type: String, required: true },
@@ -24,4 +19,4 @@ GuildSchema.methods.isOutdated = function () {
   return (Math.abs(Date.now() - this.lastupdated) / 60000) > 30
 }
 
-mongoose.model('Guild', GuildSchema)
+module.exports = mongoose.model('Guild', GuildSchema)

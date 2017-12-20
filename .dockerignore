@@ -3,6 +3,5 @@ node_modules
 .eslintignore
 .gitignore
 .gitlab-ci.yml
-CHECKS
 npm-debug.log
 .git

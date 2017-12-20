@@ -1,15 +1,10 @@
-const applicationStorage = require('core/application-storage')
+const applicationStorage = require('common/stores/application')
 const HttpStatus = require('http-status-codes')
-const mongoose = require('mongoose')
 const blizzard = require('common/services/BattleNet')
-
-// Initialize schema
-require('models/guild')
+const Guild = require('common/models/Guild')
 
 module.exports.getGuild = async ({ params }, res, next) => {
   try {
-    let Guild = mongoose.model('Guild')
-
     let guild = await Guild.findOne({ realm: params.realm, nameNormalized: params.name })
 
     if ((guild && guild.isOutdated()) || !guild) {
@@ -25,8 +20,6 @@ module.exports.getGuild = async ({ params }, res, next) => {
 }
 
 async function updateGuild (realm, name) {
-  let Guild = mongoose.model('Guild')
-
   let rawGuild = (await blizzard.wow.guild(['members'], { origin: 'eu', realm: realm, name: name })).data
 
   let members = []

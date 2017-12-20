@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const tokenController = require('controllers/token')
+const tokenController = require('api/controllers/token')
 
 router.get('/', tokenController.getToken)
 
