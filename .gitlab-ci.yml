@@ -1,3 +1,8 @@
+variables:
+    IMAGE_TAG_API: $CI_REGISTRY_IMAGE/api:${CI_COMMIT_SHA:0:8}
+    IMAGE_TAG_WORKER: $CI_REGISTRY_IMAGE/worker:${CI_COMMIT_SHA:0:8}
+    IMAGE_TAG_SCHEDULER: $CI_REGISTRY_IMAGE/scheduler:${CI_COMMIT_SHA:0:8}
+
 stages:
     - lint
     - build
@@ -19,8 +24,8 @@ build-api:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-        - docker build -t backend:api-${CI_COMMIT_SHA:0:8} -f Dockerfile.api .
-        - docker push backend:api-${CI_COMMIT_SHA:0:8}
+        - docker build -t $IMAGE_TAG_API -f Dockerfile.api .
+        - docker push $IMAGE_TAG_API
 
 build-worker:
     stage: build
@@ -31,8 +36,8 @@ build-worker:
         IMAGE_TAG: worker:${CI_COMMIT_SHA:0:8}
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-        - docker build -t backend:worker-${CI_COMMIT_SHA:0:8} -f Dockerfile.worker .
-        - docker push backend:worker-${CI_COMMIT_SHA:0:8}
+        - docker build -t $IMAGE_TAG_WORKER -f Dockerfile.worker .
+        - docker push $IMAGE_TAG_WORKER
 
 build-scheduler:
     stage: build
@@ -41,5 +46,5 @@ build-scheduler:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-        - docker build -t backend:scheduler-${CI_COMMIT_SHA:0:8} -f Dockerfile.scheduler .
-        - docker push backend:scheduler-${CI_COMMIT_SHA:0:8}
+        - docker build -t $IMAGE_TAG_SCHEDULER -f Dockerfile.scheduler .
+        - docker push $IMAGE_TAG_SCHEDULER
