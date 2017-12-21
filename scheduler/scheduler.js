@@ -10,10 +10,8 @@ const Queues = require('common/constants/queues')
 const WoWTokenTask = require('common/tasks/WoWTokenTask')
 const MythicPlusAffixesTask = require('common/tasks/MythicPlusAffixesTask')
 
-const EVERY_30MINS = '*/1 * * * *'
-// const EVERY_30MINS = '*/30 * * * *'
-const EVERY_HOUR = '*/2 * * * *'
-// const EVERY_HOUR = '0 * * * *'
+const EVERY_30MINS = '*/30 * * * *'
+const EVERY_HOUR = '0 * * * *'
 
 async function run () {
   await config.load()
