@@ -10,7 +10,7 @@ let MythicPlusAffixSchema = new Schema({
 
 const MythicPlusAffixesSchema = new Schema({
   affixes: [MythicPlusAffixSchema],
-  lastupdated: { type: Date, required: true }
+  lastupdated: { type: Date, default: Date.now, required: true }
 })
 
 module.exports = mongoose.model('MythicPlusAffixes', MythicPlusAffixesSchema)

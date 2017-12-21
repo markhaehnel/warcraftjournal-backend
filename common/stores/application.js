@@ -1,5 +1,7 @@
-exports.amqp = null
-exports.mongo = null
-exports.config = null
-exports.logger = null
-exports.env = null
+module.exports = {
+  config: null,
+  env: null,
+  kue: null,
+  logger: null,
+  mongo: null
+}

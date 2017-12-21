@@ -1,20 +1,14 @@
-const applicationStorage = require('common/stores/application')
-const WoWTokenUpdateTask = require('worker/tasks/WoWTokenUpdateTask')
-const MythicPlusAffixesUpdateTask = require('worker/tasks/MythicPlusAffixesUpdateTask')
+const appStorage = require('common/stores/application')
+const Queues = require('common/constants/queues')
+const WoWTokenTask = require('common/tasks/WoWTokenTask')
+const MythicPlusAffixesTask = require('common/tasks/MythicPlusAffixesTask')
 
 async function run () {
-  let channel = await applicationStorage.amqp.createChannel()
-  applicationStorage.logger.info('AMQP Channel created/joined')
+  let wowTokenTask = new WoWTokenTask(appStorage.kue, Queues.UPDATE_WOWTOKEN)
+  wowTokenTask.listen()
 
-  channel.prefetch(1)
-
-  let wowTokenUpdateTask = new WoWTokenUpdateTask(channel)
-  applicationStorage.logger.info('Listening for WoWTokenUpdateTask')
-  wowTokenUpdateTask.start()
-
-  let mythicPlusAffixesUpdateTask = new MythicPlusAffixesUpdateTask(channel)
-  applicationStorage.logger.info('Listening for MythicPlusAffixesUpdateTask')
-  mythicPlusAffixesUpdateTask.start()
+  let mythicPlusAffixesTask = new MythicPlusAffixesTask(appStorage.kue, Queues.UPDATE_MYTHICPLUSAFFIXES)
+  mythicPlusAffixesTask.listen()
 }
 
 module.exports.run = run
