@@ -14,7 +14,7 @@
         "amqplib": "^0.5.2",
         "app-module-path": "^2.2.0",
         "axios": "^0.17.1",
-        "blizzard.js": "^2.0.3",
+        "blizzard.js": "^2.1.0",
         "compression": "^1.7.1",
         "cors": "^2.8.4",
         "dotenv": "^4.0.0",
