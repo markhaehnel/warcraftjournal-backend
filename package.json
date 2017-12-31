@@ -5,6 +5,7 @@
     "author": "Mark Hähnel <hello@markhaehnel.de>",
     "private": true,
     "scripts": {
+        "start": "yarn run start:api & yarn run start:worker & yarn run start:scheduler",
         "start:api": "node api/api.js",
         "start:worker": "node worker/worker.js",
         "start:scheduler": "node scheduler/scheduler.js",
