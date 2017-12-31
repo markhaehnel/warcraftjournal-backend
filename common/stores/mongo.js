@@ -11,13 +11,9 @@ mongoose.plugin((schema) => {
 })
 
 module.exports.start = async () => {
-  return new Promise((resolve, reject) => {
-    mongoose.Promise = global.Promise
+  applicationStorage.logger.info('MongoDB connecting..')
+  applicationStorage.mongo = await mongoose.connect(applicationStorage.config.mongo)
+  applicationStorage.logger.info('MongoDB connected')
 
-    applicationStorage.mongo = mongoose.connect(applicationStorage.config.mongo).connection
-            .once('open', () => {
-              applicationStorage.logger.info('MongoDB connected')
-              resolve()
-            })
-  })
+  return applicationStorage.mongo
 }
