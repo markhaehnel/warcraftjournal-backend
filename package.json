@@ -27,10 +27,12 @@
         "winston": "^3.0.0-rc1"
     },
     "devDependencies": {
+        "pre-commit": "^1.2.2",
         "snazzy": "^7.0.0",
         "standard": "^10.0.3"
     },
     "engines": {
         "node": "^8.9.0"
-    }
+    },
+    "precommit": "lint"
 }
