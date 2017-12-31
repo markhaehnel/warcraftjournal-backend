@@ -24,8 +24,7 @@
         "kue": "^0.11.6",
         "mongoose": "^4.13.7",
         "node-schedule": "^1.2.5",
-        "winston": "^2.4.0",
-        "winston-daily-rotate-file": "^1.7.2"
+        "winston": "^3.0.0-rc1"
     },
     "devDependencies": {
         "snazzy": "^7.0.0",

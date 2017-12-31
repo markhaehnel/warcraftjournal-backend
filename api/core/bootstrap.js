@@ -7,7 +7,7 @@ const httpProcess = require('api/core/http-process')
 module.exports = async () => {
   try {
     await config.load()
-    await logger.start()
+    await logger.start('api')
     await mongo.start()
     await httpProcess.start()
   } catch (error) {

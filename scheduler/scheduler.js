@@ -15,7 +15,7 @@ const EVERY_HOUR = '0 * * * *'
 
 async function run () {
   await config.load()
-  await logger.start()
+  await logger.start('scheduler')
 
   let queue = await kue.start()
 

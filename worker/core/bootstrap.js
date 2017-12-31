@@ -8,7 +8,7 @@ const tasks = require('worker/tasks')
 module.exports = async () => {
   try {
     await config.load()
-    await logger.start()
+    await logger.start('worker')
     await mongo.start()
     await kue.start()
     await tasks.run()
