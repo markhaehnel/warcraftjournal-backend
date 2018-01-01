@@ -14,5 +14,6 @@ module.exports = async () => {
     await tasks.run()
   } catch (error) {
     console.log(error)
+    process.exit(1)
   }
 }

@@ -12,5 +12,6 @@ module.exports = async () => {
     await httpProcess.start()
   } catch (error) {
     console.log(error)
+    process.exit(1)
   }
 }
