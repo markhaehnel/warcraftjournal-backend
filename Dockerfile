@@ -7,8 +7,8 @@ ENV NODE_ENV=production
 WORKDIR /app
 COPY package.json /app
 COPY yarn.lock /app
-COPY common/ /app
-COPY $COMPONENT_NAME/ /app
+COPY common/ /app/common
+COPY ${COMPONENT_NAME}/ /app/${COMPONENT_NAME}
 
 RUN yarn install --production
 
