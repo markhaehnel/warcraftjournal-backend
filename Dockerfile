@@ -7,9 +7,9 @@ WORKDIR /app
 COPY package.json /app
 COPY yarn.lock /app
 COPY common/ /app
-COPY ${COMPONENT_NAME}/ /app
+COPY $COMPONENT_NAME/ /app
 
 RUN yarn install --production
 
 EXPOSE 3000
-CMD yarn start:${COMPONENT_NAME}
+CMD yarn start:$COMPONENT_NAME
