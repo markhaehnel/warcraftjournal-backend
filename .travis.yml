@@ -1,0 +1,37 @@
+sudo: required
+
+language: node_js
+node_js:
+  - "9"
+
+services:
+  - docker
+
+stages:
+    - lint
+    - build
+
+jobs:
+  include:
+    - stage: lint
+      script:
+      - yarn
+      - yarn run lint
+    
+    - stage: build #api
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - docker build -t warcraftjournal/backend-api:$TRAVIS_COMMIT --build-arg COMPONENT_NAME=api .
+        - docker push warcraftjournal/backend-api:$TRAVIS_COMMIT
+
+    - stage: build #worker
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - docker build -t warcraftjournal/backend-worker:$TRAVIS_COMMIT --build-arg COMPONENT_NAME=worker .
+        - docker push warcraftjournal/backend-worker:$TRAVIS_COMMIT
+
+    - stage: build #scheduler
+      script:
+        - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+        - docker build -t warcraftjournal/backend-scheduler:$TRAVIS_COMMIT --build-arg COMPONENT_NAME=scheduler .
+        - docker push warcraftjournal/backend-scheduler:$TRAVIS_COMMIT
